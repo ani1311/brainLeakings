@@ -1,7 +1,7 @@
 +++
 title = 'kubernetes-0'
 date = 2024-04-10T00:45:31-07:00
-draft = true
+draft = false
 +++
 
 There are a LOT of kubernetes tutorials but the point of this blog is to break it down on the basic level on the why someone would use it. Also, this is from the perspective of a noob, so the hypotheticals in this article about the before kubernetes might be pretty stupid, but as someone who entered tech after it was overtaken by kubernetes, this is what the world before kubernetes feels like to me.
