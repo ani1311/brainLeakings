@@ -125,13 +125,13 @@
 <p>On these nodes, you can run docker containers. A container running on a node is called a pod (Generally there are more than one containers running in a pod but it&rsquo;s ok for now).</p>
 </li>
 <li>
-<p>Kubernetes has magic resources that can create pods for you. One such resource is a deployment, which essentially creates a bunch of pods for you, and makes sure the cluster always has those many pods.</p>
+<p>Kubernetes has magic resources that can create pods for you. One such resource is a <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">deployment</a>, which essentially creates a bunch of pods for you, and makes sure the cluster always has those many pods.</p>
 </li>
 </ul>
 <p>Let&rsquo;s see how kubernetes solves these issues:</p>
 <ul>
 <li>
-<p>How you actually run the docker images? Kubernetes has a control plain which you can think of as your SSH script. The control plain can talk to your nodes(computers) and tell them to create a pod (having your docker container) on it. And generally you will do it using a <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">kubernetes deployment</a>.</p>
+<p>How you actually run the docker images? Kubernetes has a control plain which you can think of as your SSH script. The control plain can talk to your nodes(computers) and tell them to create a pod (having your docker container) on it. And generally you will do it using a kubernetes deployment.</p>
 </li>
 <li>
 <p>How to do next version release? Same thing, you just update your deployment and control plan takes care of recreating all the pods with the new docker image.</p>
@@ -143,6 +143,7 @@
 <p>How kubernetes makes traffic to pods routable is using <a href="https://kubernetes.io/docs/concepts/services-networking/service/">kubernetes services</a>. A service can be thought of as a entry in a DB, where the service name is the key, and a list of pods is the value. This way when a pod dies, kubernetes just updates the DB entry with the IP of the new node.</p>
 </li>
 </ul>
+<p>So now kubernetes has solved all your problems. This is essentially most of what kubernetes is used for. There still is a question on how to get traffic from <code>www.foo.com</code> to your kubernetes service. A short version of that is, you define a <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">kubernetes ingress</a>. Send traffic to your cluster&rsquo;s ingress using an external LB like route53, and then the ingress will send traffic to your service. The details of this is for another day.</p>
 </div></article>
 <footer class="py:24">
     <div class="f:fade-30 f:14 mb:8"></div>
