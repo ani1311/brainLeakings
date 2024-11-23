@@ -54,3 +54,8 @@ Q: Can't an attacker just fabricate the `server-cert`?
 A: No, because remember, this cert is signed by a super serious CA. This CA will never sign a cert from a scammy attacker.
 
 ## So what is mTLS?
+
+So mTLS is the same as TLS, except both the client as well as the server present a certificate. The only difference between the client and the server in this case is:
+
+* The client is the initiator of the request.
+* The serve is the reciever of the request.
